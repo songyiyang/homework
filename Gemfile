@@ -44,6 +44,7 @@ group :development, :test do
   gem 'faker'
   gem 'factory_girl_rails'
   gem 'rspec-rails'
+  gem 'pry-rails'
 end
 
 gem 'bootstrap-sass'
