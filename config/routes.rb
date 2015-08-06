@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create', as: 'session'
   match 'logout', to: 'sessions#destroy', as: 'logout', via: [:get, :delete]
 
+  get 'homeworks/:id', to: 'homeworks#index', as: 'homeworks'
 end

@@ -1,1 +1,22 @@
 <h1>Teacher</h1>
+
+<table class="table table-striped">
+
+	<thead>
+		<tr>
+			<th>Homework</th>
+			<th>Due Date</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @homeworks.each do |homework| %>
+			<tr>
+				<td>
+					<%= link_to homework.subject, homeworks_path(homework.id) %>
+				</td>
+				<td><%= homework.due_date.strftime('%m/%d/%Y') %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
