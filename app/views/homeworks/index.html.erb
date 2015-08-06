@@ -8,6 +8,7 @@
 		<tr>
 			<th>Username</th>
 			<th>Latest Answer</th>
+			<th>Answered At</th>
 		</tr>
 	</thead>
 
@@ -19,6 +20,9 @@
 				</td>
 				<td>
 					<%= answer.content %>
+				</td>
+				<td>
+					<%= answer.created_at.strftime('%b %e, %l:%M %p') %>
 				</td>
 			</tr>
 		<% end %>
