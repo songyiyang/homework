@@ -16,9 +16,8 @@ homework_counts.times do
 end
 
 answer_counts.times do
-	user = User.where(:role => 1).sample
-	homework = Homework.all.sample
-	from = homework.created_at
-	to = homework.due_date
-	FactoryGirl.create(:answer, created_at: Time.at(rand * (to - from).to_f + from.to_f), user: user, homework: homework)
+	assigned_homework = AssignedHomework.all.sample
+	from = assigned_homework.homework.created_at
+	to = assigned_homework.homework.due_date
+	FactoryGirl.create(:answer, created_at: Time.at(rand * (to - from).to_f + from.to_f), assigned_homework: assigned_homework)
 end

@@ -14,15 +14,13 @@
 ActiveRecord::Schema.define(version: 20150806163608) do
 
   create_table "answers", force: :cascade do |t|
-    t.text     "content"
-    t.integer  "homework_id"
-    t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.text     "content",              null: false
+    t.integer  "assigned_homework_id", null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
-  add_index "answers", ["homework_id"], name: "index_answers_on_homework_id"
-  add_index "answers", ["user_id"], name: "index_answers_on_user_id"
+  add_index "answers", ["assigned_homework_id"], name: "index_answers_on_assigned_homework_id"
 
   create_table "assigned_homeworks", force: :cascade do |t|
     t.integer  "user_id"
@@ -38,12 +36,13 @@ ActiveRecord::Schema.define(version: 20150806163608) do
     t.string   "subject",    null: false
     t.text     "content",    null: false
     t.datetime "due_date",   null: false
-    t.integer  "user_id"
+    t.integer  "user_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   add_index "homeworks", ["subject"], name: "index_homeworks_on_subject", unique: true
+  add_index "homeworks", ["user_id"], name: "index_homeworks_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "username",   null: false

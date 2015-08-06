@@ -1,7 +1,5 @@
 class Answer < ActiveRecord::Base
-  belongs_to :homework
-  belongs_to :user
+  belongs_to :assigned_homework
   validates :content, presence: true
-  validates :user, presence: true
-  validates :homework, presence: true
+  validates :assigned_homework, presence: true
 end
