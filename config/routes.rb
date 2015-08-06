@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   match 'logout', to: 'sessions#destroy', as: 'logout', via: [:get, :delete]
 
   get 'homeworks/:id', to: 'homeworks#index', as: 'homeworks'
+  get 'homeworks/:id/:user_id', to: 'homeworks#student_answers', as: 'homeworks_student_answers'
 end
