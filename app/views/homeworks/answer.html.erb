@@ -1,14 +1,14 @@
-<h1><%= @homework.subject %></h1>
+<h1 class='page-header'><%= @homework.subject %></h1>
 
-<h2><%= @homework.content %></h2>
+<h2 class='questions'>Question: <span class='question-content'><%= @homework.content %></span></h2>
 
-<%= form_tag("/homeworks/answer/#{@homework.id}", method: "post", class: "form-horizontal") do %>
+<%= form_tag("/homeworks/answer/#{@homework.id}", method: "post", class: "form") do %>
 
 	<div class="form-group">
 		<%= label_tag(:answer, "My Answer:") %>
 		<%= text_area_tag(:answer, "", class: "form-control", size: "10x10") %>
 	</div>
 
-	<%= submit_tag("Submit", class: "btn btn-default pull-right") %>
+	<%= submit_tag("Submit", class: "btn btn-info pull-right") %>
 
 <% end %>
