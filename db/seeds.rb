@@ -1,13 +1,24 @@
-FactoryGirl.create(:teacher, username: 'teacher')
+teacher_counts = 3
+studnet_counts = 10
+homework_counts = 20
+answer_counts = 100
 
-FactoryGirl.create(:student, username: 'student')
-
-5.times do
-	FactoryGirl.create(:homework, user: User.where(:role => 0).sample)
+teacher_counts.times do
+	FactoryGirl.create(:teacher)
 end
 
-20.times do
+studnet_counts.times do
+	FactoryGirl.create(:student)
+end
+
+homework_counts.times do
+	FactoryGirl.create(:homework, :with_assigned_homework, user: User.where(:role => 0).sample)
+end
+
+answer_counts.times do
 	user = User.where(:role => 1).sample
 	homework = Homework.all.sample
-	FactoryGirl.create(:answer, user: user, homework: homework)
+	from = homework.created_at
+	to = homework.due_date
+	FactoryGirl.create(:answer, created_at: Time.at(rand * (to - from).to_f + from.to_f), user: user, homework: homework)
 end
