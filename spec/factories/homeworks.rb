@@ -1,7 +1,7 @@
 FactoryGirl.define do
 	factory :homework do
-    sequence(:subject){|n| "Homework Subject #{n}"}
-    sequence(:content){|n| "Homework Content #{n}"}
+    sequence(:subject){|n| "Homework #{n}"}
+    sequence(:content){|n| "Question #{n}"}
     due_date { rand(1..8).day.from_now }
     user
     trait :with_assigned_homework do

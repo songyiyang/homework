@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
   		@homeworks = Homework.where(:user => current_user).order(:due_date)
   		render :teacher
   	elsif current_user.role == 'student'
-  		@assigned_homeworks = AssignHomework.where(:user => current_user).order(:due_date)
+  		@assigned_homeworks = AssignedHomework.where(:user => current_user)
   		render :student
   	end
   end

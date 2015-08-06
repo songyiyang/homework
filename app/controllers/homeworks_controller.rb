@@ -13,4 +13,9 @@ class HomeworksController < ApplicationController
   rescue ActiveRecord::RecordNotFound
     render(:file => "#{Rails.root}/public/404", :layout => 'application', :status => :not_found)
   end
+
+  def answer
+    @homework = Homework.find(params[:id])
+  end
+
 end

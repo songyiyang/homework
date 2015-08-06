@@ -1,6 +1,6 @@
 FactoryGirl.define do
 	factory :answer do
-    sequence(:content){|n| "Answer Content #{n}"}
+    sequence(:content){|n| "Answer #{n}"}
     assigned_homework
   end
 
