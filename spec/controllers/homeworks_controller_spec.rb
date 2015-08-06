@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe HomeworksController, type: :controller do
   let(:teacher) {FactoryGirl.create(:teacher)}
   let(:student) {FactoryGirl.create(:student)}
+  let(:homework) {FactoryGirl.create(:homework, user: teacher)}
   let(:valid_teacher_session) {{user_id: teacher.id}}
   let(:valid_student_session) {{user_id: student.id}}
-  let(:homework) {FactoryGirl.create(:homework, user: teacher)}
 
   describe "GET #teacher_view" do
     it "returns not found status if not found homework" do
