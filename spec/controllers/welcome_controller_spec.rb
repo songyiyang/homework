@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe WelcomeController, type: :controller do
   let(:teacher) {FactoryGirl.create(:teacher)}
   let(:student) {FactoryGirl.create(:student)}
-  let(:valid_session) {{user_id: teacher.id}}
+  let(:valid_teacher_session) {{user_id: teacher.id}}
   let(:valid_student_session) {{user_id: student.id}}
 
   describe "GET #index" do
@@ -12,13 +12,18 @@ RSpec.describe WelcomeController, type: :controller do
       expect(response).to redirect_to login_url
     end
 
-    it "returns http success if user is logged in" do
-      get :index, {}, valid_session
+    it "returns http success if user is logged in as teacher" do
+      get :index, {}, valid_teacher_session
+      expect(response).to have_http_status(:success)
+    end
+
+    it "returns http success if user is logged in as student" do
+      get :index, {}, valid_student_session
       expect(response).to have_http_status(:success)
     end
 
     it "returns teacher template if sign in as teacher" do
-      get :index, {}, valid_session
+      get :index, {}, valid_teacher_session
       expect(response).to render_template(:teacher)
     end
 

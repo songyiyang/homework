@@ -2,7 +2,7 @@
 
 <h2 class='questions'>Question: <span class='question-content'><%= @homework.content %></span></h2>
 
-<%= form_tag("/homeworks/answer/#{@homework.id}", method: "post", class: "form") do %>
+<%= form_tag("/homeworks/#{@homework.id}/answer", method: "post", class: "form") do %>
 
 	<div class="form-group">
 		<%= label_tag(:answer, "My Answer:") %>
