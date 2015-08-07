@@ -16,11 +16,11 @@
 			<tr>
 				<% if !passed %>
 					<td><%= link_to assigned_homework.homework.subject, homeworks_answer_path(assigned_homework.homework.id) %></td>
-					<td><%= assigned_homework.homework.due_date.strftime('%m/%d/%Y') %></td>
+					<td><%= assigned_homework.homework.due_date.localtime.strftime('%m/%d/%Y') %></td>
 					<td><label class='label label-success'>Open</label></td>
 				<% else %>
 					<td><%= assigned_homework.homework.subject %></td>
-					<td><%= assigned_homework.homework.due_date.strftime('%m/%d/%Y') %></td>
+					<td><%= assigned_homework.homework.due_date.localtime.strftime('%m/%d/%Y') %></td>
 					<td><label class='label label-danger'>Closed</label></td>
 				<% end %>
 			</tr>
