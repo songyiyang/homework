@@ -6,9 +6,9 @@
 
 	<thead>
 		<tr>
-			<th>Username</th>
+			<th style="width:150px">Username</th>
 			<th>Latest Answer</th>
-			<th>Answered At</th>
+			<th style="width:350px">Answered At</th>
 		</tr>
 	</thead>
 
@@ -22,7 +22,7 @@
 					<%= answer.content %>
 				</td>
 				<td>
-					<%= answer.created_at.strftime('%b %e, %l:%M %p') %>
+					<%= answer.created_at.localtime.strftime('%b %e, %l:%M %p') %>
 				</td>
 			</tr>
 		<% end %>
